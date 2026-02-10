@@ -1,0 +1,6 @@
+/* Собираем все куски стилей воедино */
+@import "css/vars.css";
+@import "css/base.css";
+@import "css/hero.css";
+@import "css/ui.css";
+@import "css/template.css";
