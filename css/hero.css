@@ -1,0 +1,305 @@
+/* Основний контейнер на весь екран */
+.hero-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  /* Твій фірмовий темно-синій фон */
+  background-color: #0b1120;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+  overflow: hidden;
+}
+
+/* Приховування при генерації */
+.hero-overlay--hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* --- HEADER (Як у тебе в портфоліо) --- */
+.portfolio-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-code {
+  color: #fff;
+  opacity: 0.8;
+}
+.logo-highlight {
+  color: #6366f1; /* Колір схожий на скріншот */
+}
+
+.header-nav {
+  display: flex;
+  gap: 40px;
+}
+.header-nav a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.header-nav a:hover {
+  color: #fff;
+}
+
+.header-btn {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6); /* Градієнт кнопки */
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.header-btn:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+/* --- ЦЕНТРАЛЬНИЙ КОНТЕНТ --- */
+.hero-overlay__content {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tag-pill {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: inline-block;
+}
+
+.hero-overlay__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #a78bfa, #6366f1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-overlay__subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8; /* Slate-400 */
+  margin-bottom: 50px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* --- ІНПУТ (Як код-блок) --- */
+.input-wrapper {
+  background: #1e293b; /* Темніший фон блоку */
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 20px 50px -10px rgba(99, 102, 241, 0.15);
+}
+
+.input-icon {
+  font-size: 20px;
+  padding-left: 15px;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.input-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 16px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+.input-field::placeholder {
+  color: #64748b;
+}
+
+.generate-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+.generate-btn:hover {
+  background: #4338ca;
+}
+
+/* --- BACKGROUND GLOW --- */
+.bg-glow-top {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.15) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-glow-bottom {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- TERMINAL LOADER --- */
+.loader {
+  margin-top: 30px;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+}
+.loader.hidden {
+  display: none;
+}
+.terminal-loader {
+  font-family: "Ubuntu Mono", monospace;
+  color: #22d3ee; /* Cyan */
+  font-size: 14px;
+}
+.terminal-line {
+  display: block;
+  opacity: 0;
+  animation: typeIn 0.5s forwards;
+}
+.delay-1 {
+  animation-delay: 0.8s;
+}
+.delay-2 {
+  animation-delay: 1.8s;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes typeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Мобільна адаптація */
+@media (max-width: 768px) {
+  .header-nav,
+  .header-btn {
+    display: none;
+  }
+  .hero-overlay__title {
+    font-size: 2.5rem;
+  }
+  .input-wrapper {
+    flex-direction: column;
+    padding: 15px;
+    background: #1e293b;
+  }
+  .input-field {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .generate-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .input-icon {
+    display: none;
+  }
+}
